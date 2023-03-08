@@ -91,7 +91,7 @@ deploy:release:mvn:
   dependencies:
     - "build:develop"
   script:
-    - "mv ./dist/stsearch.zip ./20_stsearch-autodeploy.zip"
+    - "(cd ./dist/; mv ./dev/ ./stsearch/; zip -r ../20_stsearch-autodeploy.zip ./stsearch/)"
     - |
       lftp <<-EOF
         set sftp:connect-program 'ssh -oStrictHostKeyChecking=no';
