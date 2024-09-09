@@ -1,0 +1,93 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json
+name: "lincebi"
+
+# https://hub.docker.com/_/caddy
+x-caddy-image: &caddy-image "docker.io/caddy:2"
+# https://github.com/LinceBI/docker-lincebi
+x-lincebi-image: &lincebi-image "repo.stratebi.com/lincebi/lincebi:9.3"
+# https://hub.docker.com/_/postgres
+x-postgres-image: &postgres-image "mirror.gcr.io/postgres:16-bookworm"
+
+services:
+  caddy:
+    image: *caddy-image
+    networks:
+      - "lincebi"
+    ports:
+      - "8080:8080/tcp"
+      - "8443:8443/tcp"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - "./Caddyfile:/etc/caddy/Caddyfile:ro"
+      - "caddy-data:/data/"
+
+  lincebi:
+    image: *lincebi-image
+    networks:
+      - "lincebi"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - "../src/:/etc/biserver.init.d/90_stsearch/:ro"
+    environment:
+      IS_PROXIED: "true"
+      PROXY_SCHEME: "https"
+      PROXY_PORT: "8443"
+      FQSU_PROTOCOL: "https"
+      FQSU_DOMAIN: "localhost"
+      FQSU_PORT: "8443"
+      WEBAPP_PENTAHO_DIRNAME: "lincebi"
+      DEFAULT_ADMIN_PASSWORD: "password"
+      STORAGE_TYPE: "postgres"
+      POSTGRES_HOST: "postgres"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "password"
+      STAGILE_LICENSE_B64: "${STAGILE_LICENSE_B64-}"
+      STDASHBOARD_LICENSE_B64: "${STDASHBOARD_LICENSE_B64-}"
+      STMETADATAWIZARD_LICENSE_B64: "${STMETADATAWIZARD_LICENSE_B64-}"
+      STPANELS_LICENSE_B64: "${STPANELS_LICENSE_B64-}"
+      STPIVOT_LICENSE_B64: "${STPIVOT_LICENSE_B64-}"
+      STREPORT_LICENSE_B64: "${STREPORT_LICENSE_B64-}"
+      POWERBI_DEFAULT_CLIENT_ID: "${POWERBI_DEFAULT_CLIENT_ID-}"
+      POWERBI_DEFAULT_AUTHENTICATION_TYPE: "ServicePrincipal"
+      POWERBI_DEFAULT_SERVICEPRINCIPAL_TENANT_ID: "${POWERBI_DEFAULT_SERVICEPRINCIPAL_TENANT_ID-}"
+      POWERBI_DEFAULT_SERVICEPRINCIPAL_CLIENT_SECRET: "${POWERBI_DEFAULT_SERVICEPRINCIPAL_CLIENT_SECRET-}"
+      SUPERSET_DEFAULT_URL: "${SUPERSET_DEFAULT_URL-}"
+      SUPERSET_DEFAULT_EXTERNAL_URL: "${SUPERSET_DEFAULT_EXTERNAL_URL-${SUPERSET_DEFAULT_URL-}}"
+      SUPERSET_DEFAULT_PROVIDER: "${SUPERSET_DEFAULT_PROVIDER-}"
+      SUPERSET_DEFAULT_USERNAME: "${SUPERSET_DEFAULT_USERNAME-}"
+      SUPERSET_DEFAULT_PASSWORD: "${SUPERSET_DEFAULT_PASSWORD-}"
+      SUPERSET_DEFAULT_GUEST_USERNAME: "${SUPERSET_DEFAULT_GUEST_USERNAME-}"
+      SUPERSET_DEFAULT_GUEST_FIRSTNAME: "${SUPERSET_DEFAULT_GUEST_FIRSTNAME-}"
+      SUPERSET_DEFAULT_GUEST_LASTNAME: "${SUPERSET_DEFAULT_GUEST_LASTNAME-}"
+    depends_on:
+      postgres:
+        condition: "service_healthy"
+
+  postgres:
+    image: *postgres-image
+    networks:
+      - "lincebi"
+    ports:
+      - "127.0.0.1:5432:5432/tcp"
+    volumes:
+      - "postgres-data:/var/lib/postgresql/data/"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "password"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-qU", "postgres"]
+      start_period: "60s"
+      interval: "10s"
+      timeout: "10s"
+      retries: 2
+
+volumes:
+  caddy-data:
+  postgres-data:
+
+networks:
+  lincebi:
+    driver: "bridge"
+    internal: false

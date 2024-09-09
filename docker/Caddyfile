@@ -3,21 +3,27 @@
 	auto_https disable_redirects
 }
 
-http://{$FQSU_DOMAIN}:8080 {
+http://:8080 {
+	tls internal {
+		on_demand
+	}
+
 	redir /* https://{host}:8443{uri} 301
 }
 
-https://{$FQSU_DOMAIN}:8443 {
-	tls internal
+https://:8443 {
+	tls internal {
+		on_demand
+	}
 
 	# Pentaho BI Server
 	reverse_proxy /* {
-		to http://biserver:8080
+		to http://lincebi:8080
 		header_down Set-Cookie "^(.*)$" "$1; SameSite=Strict; Secure"
 	}
 
 	# Webpack Dev Server
-	handle_path /pentaho/content/stsearch/resources/html/* {
+	handle_path /lincebi/content/stsearch/resources/html/* {
 		reverse_proxy http://host.docker.internal:8081
 	}
 	reverse_proxy /ws host.docker.internal:8081
