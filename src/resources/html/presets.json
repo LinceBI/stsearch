@@ -2,6 +2,8 @@
   "default": {
     "enable-banner": "false",
     "enable-filters": "true",
+    "enable-search-filter": "true",
+    "enable-date-filter": "true",
     "enable-folders": "true",
     "enable-file-tags": "true",
     "enable-file-form": "true",

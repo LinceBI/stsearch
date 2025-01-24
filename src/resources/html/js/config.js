@@ -105,6 +105,26 @@ class Config {
 			: enableFilters;
 	}
 
+	get enableSearchFilter() {
+		return this._enableSearchFilter;
+	}
+
+	set enableSearchFilter(enableSearchFilter) {
+		this._enableSearchFilter = isString(enableSearchFilter)
+			? strToBool(enableSearchFilter)
+			: enableSearchFilter;
+	}
+
+	get enableDateFilter() {
+		return this._enableDateFilter;
+	}
+
+	set enableDateFilter(enableDateFilter) {
+		this._enableDateFilter = isString(enableDateFilter)
+			? strToBool(enableDateFilter)
+			: enableDateFilter;
+	}
+
 	get enableFolders() {
 		return this._enableFolders;
 	}
