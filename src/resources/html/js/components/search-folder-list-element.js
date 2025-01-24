@@ -1,5 +1,7 @@
 import { html } from 'lit-html';
 
+import config from '../config';
+
 import BaseElement from './base-element';
 import SearchFolderElement from './search-folder-element';
 
@@ -34,7 +36,7 @@ export default class SearchFolderListElement extends BaseElement {
 										type="button"
 										class="btn btn-icon-primary input-group-text"
 										@click=${this.arrowBackClickHandler}
-										?disabled=${!this.options.parent}
+										?disabled=${!this.options.parent || (config.chroot && this.options.current.path === config.defaultFolderPath)}
 									>
 										${this.faTemplate('fas-arrow-left')}
 									</button>
@@ -50,7 +52,7 @@ export default class SearchFolderListElement extends BaseElement {
 								<input
 									type="text"
 									class="form-control"
-									.value=${this.options.current.path}
+									.value=${this.options.current.path.slice(config.chroot ? config.defaultFolderPath.length : 0) || '/'}
 									readonly
 								>
 							</div>

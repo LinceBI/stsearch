@@ -94,8 +94,10 @@ export default class SearchContainerElement extends BaseElement {
 				parent: this.options.repository.parent,
 				folders: this.options.repository.folders,
 				folderUpCallback: () => {
-					this.options.repository.current = this.options.repository.parent;
-					this.render();
+					if (!config.chroot || this.options.repository.current.path !== config.defaultFolderPath) {
+						this.options.repository.current = this.options.repository.parent;
+						this.render();
+					}
 				},
 				folderDownCallback: (folder) => {
 					this.options.repository.current = folder;
