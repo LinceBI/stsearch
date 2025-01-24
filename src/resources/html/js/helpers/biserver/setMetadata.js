@@ -1,5 +1,4 @@
 import cloneDeep from 'lodash/cloneDeep';
-import fetch from 'unfetch';
 import { get } from '@appnest/lit-translate';
 
 import getContextPath from './getContextPath';

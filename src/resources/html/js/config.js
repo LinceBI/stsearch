@@ -1,7 +1,6 @@
 import camelCase from 'lodash/camelCase';
 import cloneDeep from 'lodash/cloneDeep';
 import escapeRegExp from 'lodash/escapeRegExp';
-import fetch from 'unfetch';
 import isString from 'lodash/isString';
 
 import extensionMap from './helpers/biserver/extensionMap';
