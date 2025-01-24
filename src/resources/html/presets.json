@@ -25,6 +25,7 @@
     "max-tags": "30",
     "page-places": "5",
     "page-size": "24",
+    "chroot": "false",
     "default-folder-path": "",
     "form-file-path": "",
     "form-return-href": ""

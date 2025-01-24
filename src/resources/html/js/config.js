@@ -337,6 +337,16 @@ class Config {
 			: pageSize;
 	}
 
+	get chroot() {
+		return this._chroot;
+	}
+
+	set chroot(chroot) {
+		this._chroot = isString(chroot)
+			? strToBool(chroot)
+			: chroot;
+	}
+
 	get defaultFolderPath() {
 		return this._defaultFolderPath;
 	}
