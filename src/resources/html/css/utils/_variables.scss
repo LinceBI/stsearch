@@ -1,44 +1,46 @@
+@use 'sass:map';
+
 /* Bootstrap colors */
 $theme-colors: (
-	"primary": #546e7a,
-	"secondary": #78909c,
-	"success": #28a745,
-	"danger": #dc3545,
-	"warning": #ffc107,
-	"info": #17a2b8,
-	"light": #f8f9fa,
-	"dark": #343a40,
-	"white": #fff
+	'primary': #546e7a,
+	'secondary': #78909c,
+	'success': #28a745,
+	'danger': #dc3545,
+	'warning': #ffc107,
+	'info': #17a2b8,
+	'light': #f8f9fa,
+	'dark': #343a40,
+	'white': #fff
 );
 
 /* Tool colors */
-$theme-colors: map-merge($theme-colors, (
-	"tool-other": #757575,
-	"tool-cde": #9836e4,
-	"tool-saiku": #c52120,
-	"tool-stagile": #b91616,
-	"tool-stdashboard": #2980b9,
-	"tool-stolap": #993711,
-	"tool-stpanels": #000000,
-	"tool-stpivot": #9aa210,
-	"tool-streport": #e67e22
+$theme-colors: map.merge($theme-colors, (
+	'tool-other': #757575,
+	'tool-cde': #9836e4,
+	'tool-saiku': #c52120,
+	'tool-stagile': #b91616,
+	'tool-stdashboard': #2980b9,
+	'tool-stolap': #993711,
+	'tool-stpanels': #000000,
+	'tool-stpivot': #9aa210,
+	'tool-streport': #e67e22
 ));
 
 /* File colors */
-$theme-colors: map-merge($theme-colors, (
-	"file-other": map-get($theme-colors, tool-other),
-	"file-adhoc": map-get($theme-colors, tool-streport),
-	"file-csv": map-get($theme-colors, tool-other),
-	"file-pdf": map-get($theme-colors, tool-other),
-	"file-prpt": map-get($theme-colors, tool-other),
-	"file-saiku": map-get($theme-colors, tool-saiku),
-	"file-sta": map-get($theme-colors, tool-stagile),
-	"file-std": map-get($theme-colors, tool-stdashboard),
-	"file-stp": map-get($theme-colors, tool-stpanels),
-	"file-stolap": map-get($theme-colors, tool-stolap),
-	"file-url": map-get($theme-colors, tool-other),
-	"file-wcdf": map-get($theme-colors, tool-cde),
-	"file-xjpivot": map-get($theme-colors, tool-stpivot)
+$theme-colors: map.merge($theme-colors, (
+	'file-other': map.get($theme-colors, tool-other),
+	'file-adhoc': map.get($theme-colors, tool-streport),
+	'file-csv': map.get($theme-colors, tool-other),
+	'file-pdf': map.get($theme-colors, tool-other),
+	'file-prpt': map.get($theme-colors, tool-other),
+	'file-saiku': map.get($theme-colors, tool-saiku),
+	'file-sta': map.get($theme-colors, tool-stagile),
+	'file-std': map.get($theme-colors, tool-stdashboard),
+	'file-stp': map.get($theme-colors, tool-stpanels),
+	'file-stolap': map.get($theme-colors, tool-stolap),
+	'file-url': map.get($theme-colors, tool-other),
+	'file-wcdf': map.get($theme-colors, tool-cde),
+	'file-xjpivot': map.get($theme-colors, tool-stpivot)
 ));
 
 $yiq-text-dark: #495057;

@@ -107,7 +107,10 @@ module.exports = (env, argv) => {
 							loader: 'sass-loader',
 							options: {
 								implementation: sass,
-								additionalData: `$env: ${argv.mode};`,
+								sassOptions: {
+									quietDeps: true,
+									silenceDeprecations: ['import'],
+								},
 							},
 						},
 					],

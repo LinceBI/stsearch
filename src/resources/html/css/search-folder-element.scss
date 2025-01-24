@@ -1,9 +1,11 @@
+@use 'sass:color';
+
 .search-folder-element {
 	> .btn {
-		border: $border-width solid darken($border-color, 5%);
+		border: $border-width solid color.adjust($border-color, $lightness: -5%);
 
 		&:hover:not(:disabled) {
-			border-color: darken($border-color, 15%);
+			border-color: color.adjust($border-color, $lightness: -15%);
 		}
 
 		&:focus {

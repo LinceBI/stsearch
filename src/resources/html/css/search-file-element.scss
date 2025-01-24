@@ -1,12 +1,14 @@
+@use 'sass:map';
+
 .search-file-element {
 	> .card {
 		border-left-width: 5px;
 		border-left-style: solid;
-		border-left-color: map-get($theme-colors, file-other);
+		border-left-color: map.get($theme-colors, file-other);
 
 		> .card-header .btn {
 			font-size: 1.2rem;
-			color: map-get($theme-colors, file-other);
+			color: map.get($theme-colors, file-other);
 
 			&:hover:not(:disabled) {
 				opacity: 0.75;
@@ -28,13 +30,12 @@
 	@each $extension in adhoc, pdf, prpt, sta, std, stolap, url, wcdf, xjpivot {
 		&.file-extension-#{$extension} {
 			> .card {
-				border-left-color: map-get($theme-colors, file-#{$extension});
+				border-left-color: map.get($theme-colors, file-#{$extension});
 
 				> .card-header .btn {
-					color: map-get($theme-colors, file-#{$extension});
+					color: map.get($theme-colors, file-#{$extension});
 				}
 			}
 		}
 	}
 }
-

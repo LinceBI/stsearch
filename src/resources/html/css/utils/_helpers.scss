@@ -1,12 +1,5 @@
-/* "env" variable is defined dynamically by sass-loader */
-$env: development !default;
-
-/* Hide element in production builds */
-@if $env == 'production' {
-	.hide-in-production:not(.godmode) {
-		display: none !important;
-	}
-}
+@use 'sass:color';
+@use 'sass:map';
 
 /* Increase margin between Font Awesome icons and labels */
 img + .lbl, .svg-inline--fa + .lbl {
@@ -69,14 +62,14 @@ label.btn {
 /* Allow different color for the button icon */
 @each $color, $value in $theme-colors {
 	.btn-icon-#{$color}:not(:disabled) .icon {
-		color: map-get($theme-colors, $color);
+		color: map.get($theme-colors, $color);
 	}
 }
 
 /* Fix hover style on active btn-outline-* buttons */
 @each $color, $value in $theme-colors {
-	$hover-background: darken(map-get($theme-colors, $color), 5%);
-	$hover-border: darken(map-get($theme-colors, $color), 10%);
+	$hover-background: color.adjust(map.get($theme-colors, $color), $lightness: -5%);
+	$hover-border: color.adjust(map.get($theme-colors, $color), $lightness: -10%);
 	.btn-outline-#{$color}.active:hover {
 		color: color-yiq($hover-background) !important;
 		@include gradient-bg($hover-background !important);
@@ -85,7 +78,7 @@ label.btn {
 }
 
 /* Responsive version for sizes (implements twbs/bootstrap#21943) */
-@each $breakpoint in map-keys($grid-breakpoints) {
+@each $breakpoint in map.keys($grid-breakpoints) {
 	@if $breakpoint != 'xs' {
 		@include media-breakpoint-up($breakpoint) {
 			$infix: breakpoint-infix($breakpoint, $grid-breakpoints);
@@ -99,7 +92,7 @@ label.btn {
 }
 
 /* Responsive versions for flex-grow and flex-shrink */
-@each $breakpoint in map-keys($grid-breakpoints) {
+@each $breakpoint in map.keys($grid-breakpoints) {
 	@include media-breakpoint-up($breakpoint) {
 		$infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 		@each $value in 0, 1, 2, 3, 4, 5 {
@@ -172,18 +165,18 @@ label.btn {
 		padding-bottom: rem(2);
 		padding-right: rem(8);
 		padding-left: rem(8);
-		color: map-get($theme-colors, dark);
+		color: map.get($theme-colors, dark);
 		transition: none;
 	}
 
 	> tag > div::before {
-		box-shadow: 0 0 0 rem(20) map-get($theme-colors, light) inset;
-		border: rem(1) solid lighten(map-get($theme-colors, dark), 60%);
+		box-shadow: 0 0 0 rem(20) map.get($theme-colors, light) inset;
+		border: rem(1) solid color.adjust(map.get($theme-colors, dark), $lightness: 60%);
 	}
 
 	> tag:hover:not([readonly]) > div::before {
-		box-shadow: 0 0 0 rem(20) map-get($theme-colors, light) inset;
-		border: rem(1) solid lighten(map-get($theme-colors, dark), 40%);
+		box-shadow: 0 0 0 rem(20) map.get($theme-colors, light) inset;
+		border: rem(1) solid color.adjust(map.get($theme-colors, dark), $lightness: 40%);
 	}
 
 	tag > x {
@@ -197,13 +190,13 @@ label.btn {
 	}
 
 	> tag > x:hover {
-		background: lighten(map-get($theme-colors, danger), 20%);
+		background: color.adjust(map.get($theme-colors, danger), $lightness: 20%);
 	}
 
 	> tag > x:hover + div::before,
 	> tag.tagify--notAllowed > div::before {
-		box-shadow: 0 0 0 rem(20) lighten(map-get($theme-colors, danger), 40%) inset !important;
-		border: rem(1) solid lighten(map-get($theme-colors, danger), 20%) !important;
+		box-shadow: 0 0 0 rem(20) color.adjust(map.get($theme-colors, danger), $lightness: 40%) inset !important;
+		border: rem(1) solid color.adjust(map.get($theme-colors, danger), $lightness: 20%) !important;
 	}
 
 	> tag.tagify__tag--editable {

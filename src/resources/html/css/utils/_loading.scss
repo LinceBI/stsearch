@@ -1,9 +1,12 @@
+@use 'sass:color';
+@use 'sass:map';
+
 @import 'svg-uri';
 
 @mixin loading() {
 	$loading-size: rem(30) !default;
 	$loading-size-multiplier: 4 !default;
-	$loading-color: lighten(map-get($theme-colors, dark), 40%) !default;
+	$loading-color: color.adjust(map.get($theme-colors, dark), $lightness: 40%) !default;
 	$loading-svg: svg-uri(
 		'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">' +
 			'<circle fill="none" stroke="#{$loading-color}" stroke-width="10" cx="50" cy="50" r="45" />' +
@@ -30,7 +33,7 @@
 
 	&::before {
 		z-index: 100000;
-		background-color: rgba(map-get($theme-colors, light), 0.6);
+		background-color: rgba(map.get($theme-colors, light), 0.6);
 		animation: pulse 1s infinite ease-in-out;
 		@keyframes pulse {
 			0% { background-size: $loading-size; }
