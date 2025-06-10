@@ -28,6 +28,7 @@
     "page-places": "5",
     "page-size": "24",
     "chroot": "false",
+    "recursive": "true",
     "default-folder-path": "",
     "form-file-path": "",
     "form-return-href": ""

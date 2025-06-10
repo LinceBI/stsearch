@@ -367,6 +367,16 @@ class Config {
 			: chroot;
 	}
 
+	get recursive() {
+		return this._recursive;
+	}
+
+	set recursive(recursive) {
+		this._recursive = isString(recursive)
+			? strToBool(recursive)
+			: recursive;
+	}
+
 	get defaultFolderPath() {
 		return this._defaultFolderPath;
 	}

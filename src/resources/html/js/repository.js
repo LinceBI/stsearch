@@ -24,20 +24,24 @@ export default class Repository {
 	}
 
 	set current(current) {
-		const files = [];
+		let files;
 		const folders = current.children.filter((node) => node.isFolder);
 
-		const stack = [current];
-
-		while (stack.length > 0) {
-			const node = stack.pop();
-			if (node.isFolder) {
-				for (let i = 0; i < node.children.length; i++) {
-					stack.push(node.children[i]);
+		if (config.recursive) {
+			files = [];
+			const stack = [current];
+			while (stack.length > 0) {
+				const node = stack.pop();
+				if (node.isFolder) {
+					for (let i = 0; i < node.children.length; i++) {
+						stack.push(node.children[i]);
+					}
+				} else if (this.isFileFiltered(node)) {
+					files.push(node);
 				}
-			} else if (this.isFileFiltered(node)) {
-				files.push(node);
 			}
+		} else {
+			files = current.children.filter((node) => !node.isFolder);
 		}
 
 		this._files = this.orderFiles(files);
