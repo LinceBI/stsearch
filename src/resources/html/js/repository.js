@@ -16,7 +16,9 @@ export default class Repository {
 
 	set root(root) {
 		this._root = root;
-		this.current = this.fromPath(config.defaultFolderPath) ?? root;
+		this.current = config.defaultFolderPath
+			? (this.fromPath(config.defaultFolderPath) ?? EMPTY_ROOT)
+			: root;
 	}
 
 	get current() {
