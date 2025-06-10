@@ -1,4 +1,5 @@
 import { html } from 'lit-html';
+import { styleMap } from 'lit-html/directives/style-map';
 import { library as faLibrary } from '@fortawesome/fontawesome-svg-core';
 
 import config from '../config';
@@ -51,7 +52,7 @@ export default class SearchFileElement extends BaseElement {
 								<button
 									type="button"
 									class="btn btn-light flex-grow-0"
-									?disabled=${this.options.file.isReadonly}
+									style=${styleMap({ display: this.options.file.isReadonly ? 'none' : 'inline' })}
 									@click=${this.fileFormClickHandler}
 								>
 									${this.faTemplate('fas-list')}
@@ -79,7 +80,7 @@ export default class SearchFileElement extends BaseElement {
 								<button
 									type="button"
 									class="btn btn-light flex-grow-0"
-									?disabled=${this.options.file.isReadonly || !this.options.file.editUrl}
+									style=${styleMap({ display: this.options.file.isReadonly || !this.options.file.editUrl ? 'none' : 'inline' })}
 									@click=${this.fileEditClickHandler}
 								>
 									${this.faTemplate('fas-pencil')}
