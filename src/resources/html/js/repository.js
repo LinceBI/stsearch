@@ -43,7 +43,7 @@ export default class Repository {
 				}
 			}
 		} else {
-			files = current.children.filter((node) => !node.isFolder);
+			files = current.children.filter((node) => !node.isFolder && this.isFileFiltered(node));
 		}
 
 		this._files = this.orderFiles(files);
