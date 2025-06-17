@@ -41,6 +41,7 @@
       "label": "검색",
       "placeholder": "검색..."
     },
+    "recursive": "재귀적",
     "searchIn": "검색 위치:",
     "searchInTitle": "제목",
     "searchInDescription": "기술",

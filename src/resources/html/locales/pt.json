@@ -41,6 +41,7 @@
       "label": "Procurar",
       "placeholder": "Procurar..."
     },
+    "recursive": "Recursivo",
     "searchIn": "Procurar em:",
     "searchInTitle": "Título",
     "searchInDescription": "Descrição",

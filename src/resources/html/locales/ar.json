@@ -41,6 +41,7 @@
       "label": "بحث",
       "placeholder": "بحث..."
     },
+    "recursive": "عودي",
     "searchIn": "البحث في:",
     "searchInTitle": "عنوان",
     "searchInDescription": "وصف",

@@ -41,6 +41,7 @@
       "label": "Cercar",
       "placeholder": "Cercar..."
     },
+    "recursive": "Recursiu",
     "searchIn": "Cercar en:",
     "searchInTitle": "Títol",
     "searchInDescription": "Descripció",

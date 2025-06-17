@@ -55,6 +55,7 @@ export default class SearchContainerElement extends BaseElement {
 			this.searchFilterFormElement = new SearchFilterFormElement(null, {
 				formSubmitCallback: (formObj) => {
 					override(config, {
+						recursive: strToBool(formObj.recursive),
 						searchTerms: formObj['search-terms'],
 						searchInTitle: strToBool(formObj['search-in-title']),
 						searchInDescription: strToBool(formObj['search-in-description']),

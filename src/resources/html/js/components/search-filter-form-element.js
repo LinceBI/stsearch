@@ -95,6 +95,25 @@ export default class SearchFilterFormElement extends BaseElement {
 													</label>
 												</div>
 											</div>
+											<hr class="m-2">
+											<div class="dropdown-item p-0">
+												<div class="btn-group-toggle" data-toggle="buttons">
+													<label
+														class="btn btn-sm btn-link text-left px-3 w-100 rounded-0 ${config.recursive ? 'active' : ''}"
+														@click=${this.formFieldChangeHandlerGenerator('recursive')}
+													>
+														<input
+															name="recursive"
+															type="checkbox"
+															value="true"
+															.checked=${config.recursive}
+															@keyup=${this.formButtonCheckboxKeyupHandler}
+															autocomplete="off"
+														>
+														${translate('search-filter-form.recursive')}
+													</label>
+												</div>
+											</div>
 										</div>
 									</div>
 									<input
