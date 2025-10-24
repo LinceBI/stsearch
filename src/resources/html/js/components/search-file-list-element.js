@@ -1,6 +1,8 @@
 import { html } from 'lit-html';
 import { translate } from '@appnest/lit-translate';
 
+import config from '../config';
+
 import BaseElement from './base-element';
 import SearchFileElement from './search-file-element';
 
@@ -29,7 +31,7 @@ export default class SearchFileListElement extends BaseElement {
 		}
 
 		return html`
-			<div id="${this.id}" class="${this.className} row">
+			<div id="${this.id}" class="${this.className} p-0 ${config.layout === 'grid' ? 'row' : 'col'}">
 				${fileTemplates.length > 0 ? html`
 					${fileTemplates}
 				` : html`

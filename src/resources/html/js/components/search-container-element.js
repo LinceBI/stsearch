@@ -250,12 +250,29 @@ export default class SearchContainerElement extends BaseElement {
 			<div id="${this.id}" class="${this.className} container-fluid">
 				<div class="my-4">${this.searchBannerElement.template}</div>
 				<div class="my-4">${this.searchFilterFormElement.template}</div>
-				<div class="my-4">${this.searchFolderListElement.template}</div>
+				<div class="my-4 d-flex align-items-start gap-2">
+					<div class="flex-grow-1">${this.searchFolderListElement.template}</div>
+					<button type="button" class="btn btn-light border" @click=${this.layoutToggleClickHandler}>
+						${this.faTemplate(config.layout === 'grid' ? 'fas-table-cells-large' : 'fas-table-list')}
+					</button>
+				</div>
 				<div class="my-4">${this.searchFileListElement.template}</div>
 				<div class="my-4">${this.searchFileFormModalElement.template}</div>
 				<div class="my-4">${this.searchPaginationElement.template}</div>
 			</div>
 		`;
+	}
+
+	get layoutToggleClickHandler() {
+		return {
+			capture: true,
+			passive: true,
+			once: false,
+			handleEvent: () => {
+				config.layout = config.layout === 'grid' ? 'list' : 'grid';
+				this.render();
+			},
+		};
 	}
 
 	render() {

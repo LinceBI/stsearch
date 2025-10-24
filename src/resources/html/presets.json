@@ -24,6 +24,7 @@
     "date-min": "",
     "date-max": "",
     "date-property": "created",
+    "layout": "grid",
     "max-tags": "30",
     "page-places": "5",
     "page-size": "24",

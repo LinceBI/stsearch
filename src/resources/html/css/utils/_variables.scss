@@ -13,6 +13,17 @@ $theme-colors: (
 	'white': #fff
 );
 
+/* Bootstrap breakpoints */
+$grid-breakpoints: (
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px,
+	xxl: 1400px,
+	xxxl: 1600px,
+);
+
 /* Tool colors */
 $theme-colors: map.merge($theme-colors, (
 	'tool-other': #757575,

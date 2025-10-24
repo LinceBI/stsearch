@@ -77,6 +77,13 @@ label.btn {
 	}
 }
 
+/* Backport of gap utility */
+@each $size, $length in $spacers {
+	.gap-#{$size} {
+		gap: $length !important;
+	}
+}
+
 /* Responsive version for sizes (implements twbs/bootstrap#21943) */
 @each $breakpoint in map.keys($grid-breakpoints) {
 	@if $breakpoint != 'xs' {

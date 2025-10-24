@@ -34,7 +34,8 @@ export default class SearchFileElement extends BaseElement {
 		return html`
 			<div
 				id="${this.id}"
-				class="${this.className} col-lg-6 col-xl-4 mb-3
+				class="${this.className} mb-3
+					${config.layout === 'grid' ? 'col-lg-6 col-xxxl-4' : ''}
 					file-extension-${this.options.file.extension}
 					file-home-${this.options.file.isHome ? 'on' : 'off'}
 					file-recent-${this.options.file.isRecent ? 'on' : 'off'}
@@ -89,11 +90,11 @@ export default class SearchFileElement extends BaseElement {
 						</div>
 					</div>
 					<div class="card-body">
-						<div class="row no-gutters">
-							<div class="col-md-2 col-lg-4 p-2">
+						<div class="row no-gutters flex-nowrap">
+							<div class="p-2">
 								<button
 									class="d-block square-box square-box-centered border"
-									style="max-height: 128px; max-width: 128px"
+									style="height: 128px; width: 128px"
 									@click=${this.fileOpenClickHandler}
 								>
 									<div class="square-box-content p-1 bg-light text-muted">
@@ -106,16 +107,16 @@ export default class SearchFileElement extends BaseElement {
 									</div>
 								</button>
 							</div>
-							<div class="col-md-10 col-lg-8 p-2">
+							<div class="p-2">
 								<h5 class="card-title" title="${this.options.file.title}">
-								${this.options.file.title.length > 40 ? html`
+								${config.layout === 'grid' && this.options.file.title.length > 40 ? html`
 									${this.options.file.title.substring(0, 40)}...
 								` : html`
 									${this.options.file.title}
 								`}
 								</h5>
 								<p class="card-text" title="${this.options.file.description}">
-								${this.options.file.description.length > 100 ? html`
+								${config.layout === 'grid' && this.options.file.description.length > 100 ? html`
 									${this.options.file.description.substring(0, 100)}...
 								` : html`
 									${this.options.file.description}

@@ -327,6 +327,14 @@ class Config {
 		this._dateProperty = dateProperty;
 	}
 
+	get layout() {
+		return this._layout;
+	}
+
+	set layout(layout) {
+		this._layout = layout === 'grid' ? 'grid' : 'list';
+	}
+
 	get maxTags() {
 		return this._maxTags;
 	}

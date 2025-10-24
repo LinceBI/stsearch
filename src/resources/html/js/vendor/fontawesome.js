@@ -28,6 +28,8 @@ import { library, dom } from '@fortawesome/fontawesome-svg-core';
 		import(/* webpackMode: "eager" */ '@fortawesome/free-solid-svg-icons/faMapLocationDot'),
 		import(/* webpackMode: "eager" */ '@fortawesome/free-solid-svg-icons/faPencil'),
 		import(/* webpackMode: "eager" */ '@fortawesome/free-solid-svg-icons/faRightLong'),
+		import(/* webpackMode: "eager" */ '@fortawesome/free-solid-svg-icons/faTableCellsLarge'),
+		import(/* webpackMode: "eager" */ '@fortawesome/free-solid-svg-icons/faTableList'),
 		import(/* webpackMode: "eager" */ './fontawesome/fakFileAdhoc'),
 		import(/* webpackMode: "eager" */ './fontawesome/fakFileCsv'),
 		import(/* webpackMode: "eager" */ './fontawesome/fakFileOther'),
