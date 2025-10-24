@@ -1,6 +1,6 @@
 import getFaUnicodeCharacter from './getUnicodeCharacter';
 
-export const prefix = 'fac';
+export const prefix = 'fak';
 export const iconName = 'tool-cde';
 export const width = 576;
 export const height = 512;

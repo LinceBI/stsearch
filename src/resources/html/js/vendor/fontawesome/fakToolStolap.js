@@ -1,6 +1,6 @@
 import getFaUnicodeCharacter from './getUnicodeCharacter';
 
-export const prefix = 'fac';
+export const prefix = 'fak';
 export const iconName = 'tool-stolap';
 export const width = 1200;
 export const height = 1200;

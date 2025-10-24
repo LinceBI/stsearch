@@ -27,7 +27,7 @@ export default class SearchFileElement extends BaseElement {
 		}
 
 		const faDefs = faLibrary.definitions;
-		const facIconName = faDefs.fac && faDefs.fac[`file-${this.options.file.extension}`]
+		const fakIconName = faDefs.fak && faDefs.fak[`file-${this.options.file.extension}`]
 			? `file-${this.options.file.extension}`
 			: 'file-other';
 
@@ -46,7 +46,7 @@ export default class SearchFileElement extends BaseElement {
 					<div class="card-header">
 						<div class="card-buttons btn-group d-flex flex-fill flex-wrap justify-content-end m-n2">
 							<button type="button" class="btn btn-light btn-inactive d-none d-sm-inline flex-fill text-left" tabindex="-1">
-								${this.faTemplate(`fac-${facIconName}`)}
+								${this.faTemplate(`fak-${fakIconName}`)}
 							</button>
 							${config.enableFileForm ? html`
 								<button
@@ -64,7 +64,7 @@ export default class SearchFileElement extends BaseElement {
 									class="btn btn-light flex-grow-0"
 									@click=${this.fileHomeClickHandler}
 								>
-									${this.faTemplate(this.options.file.isHome ? 'fac-home-solid' : 'fac-home-outline')}
+									${this.faTemplate(this.options.file.isHome ? 'fak-home-solid' : 'fak-home-outline')}
 								</button>
 							` : ''}
 							${config.enableFileFavorite ? html`

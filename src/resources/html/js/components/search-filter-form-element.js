@@ -211,7 +211,7 @@ export default class SearchFilterFormElement extends BaseElement {
 												@keyup=${this.formButtonCheckboxKeyupHandler}
 												autocomplete="off"
 											>
-											${this.faTemplate('fac-tool-stpivot')}
+											${this.faTemplate('fak-tool-stpivot')}
 										</label>
 									` : ''}
 									${config._availableOverlaysSet.has('launch.launch_new_stolap_analytics') ? html`
@@ -228,7 +228,7 @@ export default class SearchFilterFormElement extends BaseElement {
 												@keyup=${this.formButtonCheckboxKeyupHandler}
 												autocomplete="off"
 											>
-											${this.faTemplate('fac-tool-stolap')}
+											${this.faTemplate('fak-tool-stolap')}
 										</label>
 									` : ''}
 									${config._availableOverlaysSet.has('launch.launch-new-saiku-adhoc') ? html`
@@ -245,7 +245,7 @@ export default class SearchFilterFormElement extends BaseElement {
 												@keyup=${this.formButtonCheckboxKeyupHandler}
 												autocomplete="off"
 											>
-											${this.faTemplate('fac-tool-streport')}
+											${this.faTemplate('fak-tool-streport')}
 										</label>
 									` : ''}
 									${config._availableOverlaysSet.has('launch.launch-new-stpanels') ? html`
@@ -262,7 +262,7 @@ export default class SearchFilterFormElement extends BaseElement {
 												@keyup=${this.formButtonCheckboxKeyupHandler}
 												autocomplete="off"
 											>
-											${this.faTemplate('fac-tool-stpanels')}
+											${this.faTemplate('fak-tool-stpanels')}
 										</label>
 									` : ''}
 									${config._availableOverlaysSet.has('launch.stdashboardButton') ? html`
@@ -279,7 +279,7 @@ export default class SearchFilterFormElement extends BaseElement {
 												@keyup=${this.formButtonCheckboxKeyupHandler}
 												autocomplete="off"
 											>
-											${this.faTemplate('fac-tool-stdashboard')}
+											${this.faTemplate('fak-tool-stdashboard')}
 										</label>
 									` : ''}
 									${config._availableOverlaysSet.has('launch.launch-new-stagile') ? html`
@@ -296,7 +296,7 @@ export default class SearchFilterFormElement extends BaseElement {
 												@keyup=${this.formButtonCheckboxKeyupHandler}
 												autocomplete="off"
 											>
-											${this.faTemplate('fac-tool-stagile')}
+											${this.faTemplate('fak-tool-stagile')}
 										</label>
 									` : ''}
 									${config._availableOverlaysSet.has('launch.launch_new_cde') ? html`
@@ -313,7 +313,7 @@ export default class SearchFilterFormElement extends BaseElement {
 												@keyup=${this.formButtonCheckboxKeyupHandler}
 												autocomplete="off"
 											>
-											${this.faTemplate('fac-tool-cde')}
+											${this.faTemplate('fak-tool-cde')}
 										</label>
 									` : ''}
 									<label
@@ -329,7 +329,7 @@ export default class SearchFilterFormElement extends BaseElement {
 											@keyup=${this.formButtonCheckboxKeyupHandler}
 											autocomplete="off"
 										>
-										${this.faTemplate('fac-tool-other')}
+										${this.faTemplate('fak-tool-other')}
 									</label>
 								</div>
 								<div class="btn-group flex-fill mx-1 mb-1">

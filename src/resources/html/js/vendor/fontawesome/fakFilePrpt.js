@@ -1,9 +1,9 @@
-import { width, height, ligatures, svgPathData } from './facToolStdashboard';
+import { width, height, ligatures, svgPathData } from '@fortawesome/free-solid-svg-icons/faFileInvoice';
 import getFaUnicodeCharacter from './getUnicodeCharacter';
 
 export { width, height, ligatures, svgPathData };
-export const prefix = 'fac';
-export const iconName = 'file-std';
+export const prefix = 'fak';
+export const iconName = 'file-prpt';
 export const unicode = getFaUnicodeCharacter();
 export const definition = {
 	prefix,
@@ -11,4 +11,4 @@ export const definition = {
 	icon: [width, height, ligatures, unicode, svgPathData],
 };
 
-export { definition as faFileStd };
+export { definition as faFilePrpt };
