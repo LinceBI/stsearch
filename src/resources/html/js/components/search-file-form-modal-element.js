@@ -89,7 +89,7 @@ export default class SearchFileFormModalElement extends BaseElement {
 											type="text"
 											class="form-control"
 											rows="3"
-											maxlength="500"
+											maxlength="1000"
 										>${this.options.file.description}</textarea>
 									</div>
 									<div class="form-group">
