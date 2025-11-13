@@ -36,6 +36,9 @@
   "search-file-list": {
     "noResultsFound": "No se han encontrado resultados"
   },
+  "search-container-element": {
+    "layoutToggle": "Alternar vista"
+  },
   "search-filter-form": {
     "search": {
       "label": "Buscar",

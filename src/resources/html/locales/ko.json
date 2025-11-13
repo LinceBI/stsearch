@@ -36,6 +36,9 @@
   "search-file-list": {
     "noResultsFound": "결과를 찾을 수 없습니다."
   },
+  "search-container-element": {
+    "layoutToggle": "보기 전환"
+  },
   "search-filter-form": {
     "search": {
       "label": "검색",

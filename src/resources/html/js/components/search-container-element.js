@@ -2,7 +2,7 @@ import jQuery from 'jquery';
 import clamp from 'lodash/clamp';
 import debounce from 'lodash/debounce';
 import { html } from 'lit-html';
-import { get } from '@appnest/lit-translate';
+import { get, translate } from '@appnest/lit-translate';
 
 import bsCustomFileInput from '../vendor/bs-custom-file-input';
 import Tagify from '../vendor/tagify';
@@ -252,7 +252,12 @@ export default class SearchContainerElement extends BaseElement {
 				<div class="my-4">${this.searchFilterFormElement.template}</div>
 				<div class="my-4 d-flex align-items-start gap-2">
 					<div class="flex-grow-1">${this.searchFolderListElement.template}</div>
-					<button type="button" class="btn btn-light border" @click=${this.layoutToggleClickHandler}>
+					<button
+						type="button"
+						class="btn btn-light border"
+						title="${translate('search-container-element.layoutToggle')}"
+						@click=${this.layoutToggleClickHandler}
+					>
 						${this.faTemplate(config.layout === 'grid' ? 'fas-table-cells-large' : 'fas-table-list')}
 					</button>
 				</div>
