@@ -73,7 +73,7 @@ export default class SearchContainerElement extends BaseElement {
 					this.render();
 				},
 				formRefreshCallback: async () => {
-					const root = await getRepository();
+					const root = await getRepository({ refresh: true });
 					if (root === null) {
 						Noty.error(get('notifications.errorLoadingData'));
 					} else {
